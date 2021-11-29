@@ -15,5 +15,8 @@ async def on_mint(
         id=mint.parameter.token_id,
         creator=mint.parameter.creator_name,
         collection = mint.parameter.collection_name,
+        price = mint.parameter.price,
+        ipfs = mint.parameter.ipfs_hash,
+        sale = mint.parameter.on_sale,
     )
     await token.save()

@@ -27,8 +27,18 @@ indexes:
           - type: transaction
             destination: kalamint_fa2
             entrypoint: mint
-      - callback: on_purchase
+      - callback: on_sell
         pattern:
           - type: transaction
             destination: kalamint_fa2
-            entrypoint: buy
+            entrypoint: list_token
+
+  kalamint_bigmap:
+    kind: big_map
+    datasource: tzkt_mainnet
+    handlers:
+      - callback: on_token_update
+        contract: kalamint_fa2
+        path: tokens
+
+  
