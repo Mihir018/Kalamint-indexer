@@ -11,12 +11,26 @@ async def on_mint(
 ) -> None:
     ctx.logger.info('Processing `%s`', mint.parameter)
 
-    token = models.Token(
-        id=mint.parameter.token_id,
+    trader = mint.data.sender_address
+
+    # token = models.Token(
+    #     id=mint.parameter.token_id,
+    #     creator=mint.parameter.creator_name,
+    #     trader = trader,
+    #     collection = mint.parameter.collection_name,
+    #     price = mint.parameter.price,
+    #     ipfs = mint.parameter.ipfs_hash,
+    #     sale = mint.parameter.on_sale,
+
+    # )
+    # await token.save()
+
+    await models.Token.update_or_create(
+        id = mint.parameter.token_id,
         creator=mint.parameter.creator_name,
+        trader = trader,
         collection = mint.parameter.collection_name,
         price = mint.parameter.price,
         ipfs = mint.parameter.ipfs_hash,
         sale = mint.parameter.on_sale,
     )
-    await token.save()

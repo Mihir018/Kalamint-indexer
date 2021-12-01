@@ -11,7 +11,10 @@ async def on_sell(
 ) -> None:
     ctx.logger.info('Processing `%s`', list_token.parameter)
 
+    # trader = list_token.data.sender_address
+
     # auction = models.Auction(
+    #     trader = trader,
     #     price = list_token.parameter.price,
     #     id = list_token.parameter.token_id,
     # )
