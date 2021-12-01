@@ -9,7 +9,7 @@ async def on_mint(
     ctx: HandlerContext,
     mint: Transaction[MintParameter, Kalamint1Storage],
 ) -> None:
-    ctx.logger.info('Processing `%s`', mint.parameter)
+    ctx.logger.info('Processing `%s`', mint.data.storage['all_collections'])
 
     trader = mint.data.sender_address
 

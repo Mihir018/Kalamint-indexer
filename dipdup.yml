@@ -2,8 +2,18 @@ spec_version: 1.2
 package: demo
 
 database:
-  kind: sqlite
-  path: demo.sqlite3
+  kind: postgres
+  host: db
+  port: 5432
+  user: dipdup
+  password: changeme
+  database: dipdup
+  schema_name: public
+hasura:
+  url: http://hasura:8080/
+  camel_case: False
+  admin_secret: changeme
+  select_limit: 100000
 
 contracts:
    kalamint_fa2:
@@ -31,7 +41,7 @@ indexes:
         pattern:
           - type: transaction
             destination: kalamint_fa2
-            entrypoint: list_token
+            entrypoint: buy
 
   kalamint_bigmap:
     kind: big_map
