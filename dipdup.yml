@@ -6,14 +6,16 @@ database:
   host: db
   port: 5432
   user: dipdup
-  password: changeme
+  password: ${POSTGRES_PASSWORD:-changeme}
   database: dipdup
-  schema_name: public
+  schema_name: demo
+
 hasura:
-  url: http://hasura:8080/
-  camel_case: False
-  admin_secret: changeme
-  select_limit: 100000
+  url: http://hasura:8080
+  admin_secret: ${ADMIN_SECRET:-changeme}
+  allow_aggregations: False
+  camel_case: true
+  select_limit: 100
 
 contracts:
    kalamint_fa2:
