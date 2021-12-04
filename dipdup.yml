@@ -3,19 +3,19 @@ package: demo
 
 database:
   kind: postgres
-  host: db
+  host: 127.0.0.1
   port: 5432
   user: dipdup
-  password: ${POSTGRES_PASSWORD:-changeme}
+  password: changeme
   database: dipdup
-  schema_name: demo
+  schema_name: public
 
 hasura:
-  url: http://hasura:8080
-  admin_secret: ${ADMIN_SECRET:-changeme}
-  allow_aggregations: False
-  camel_case: true
-  select_limit: 100
+  url: http://localhost:8080
+  camel_case: False
+  admin_secret: changeme
+  select_limit: 100000
+
 
 contracts:
    kalamint_fa2:
