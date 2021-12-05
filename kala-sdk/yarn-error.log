@@ -1,0 +1,42 @@
+Arguments: 
+  /home/mihir/.nvm/versions/node/v12.20.0/bin/node /home/mihir/.nvm/versions/node/v12.20.0/bin/yarn
+
+PATH: 
+  /home/mihir/.cache/pypoetry/virtualenvs/kalamint-X1NXlnv3-py3.8/bin:/home/mihir/.nvm/versions/node/v12.20.0/bin:/home/mihir/.poetry/bin:/home/mihir/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  12.20.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+
+npm manifest: 
+  {
+      "name": "kala-sdk",
+      "version": "0.0.1",
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "devDependencies": {
+        "@genql/cli": "^2.6.0"
+      },
+      "dependencies": {
+        "@genql/runtime": "2.6.0",
+        "graphql": "^15.5.0"
+      },
+      "scripts": {
+        "build": "genql --esm --endpoint http://127.0.0.1:8080/v1/graphql --output ./dist"
+      }
+    }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
