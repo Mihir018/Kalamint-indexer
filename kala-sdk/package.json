@@ -1,17 +1,20 @@
 {
-    "name": "kala-sdk",
-    "version": "0.0.1",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "devDependencies": {
-      "@genql/cli": "^2.6.0"
-    },
-    "dependencies": {
-      "@genql/runtime": "2.6.0",
-      "graphql": "^15.5.0"
-    },
-    "scripts": {
-      "build": "genql --esm --endpoint http://127.0.0.1:8080/v1/graphql --output ./dist"
-    }
+  "name": "kala-sdk",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@genql/cli": "^2.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-plugin-vue": "^8.2.0"
+  },
+  "dependencies": {
+    "@genql/runtime": "2.6.0",
+    "graphql": "^15.5.0"
+  },
+  "scripts": {
+    "build": "genql --esm --endpoint http://127.0.0.1:8080/v1/graphql --output ./dist"
   }
-  
+}
