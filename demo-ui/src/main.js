@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
 import App from './App.vue'
+import Vuesax from 'vuesax'
 
-Vue.use(VueCompositionApi)
+import 'vuesax/dist/vuesax.css' //Vuesax styles
+
+// Vue.use(VueCompositionApi)
+Vue.use(Vuesax)
 Vue.config.productionTip = false
 
 new Vue({
