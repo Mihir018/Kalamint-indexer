@@ -28,7 +28,7 @@
               {{ i + 1 }}
             </vs-td>
             <vs-td>
-              {{ tr.token_id }}
+              <a :href="'https://kalamint.io/token/' + tr.token_id">{{ tr.token_id }}</a>
             </vs-td>
             <vs-td>
               {{ tr.namepng }}
@@ -64,13 +64,13 @@
             :key="i"
             v-for="(tr, i) in trades"
             :data="tr"
-            v-if="tr.creator != tr.owner"
+            v-if="tr.creator != tr.owner && tr.on_sale == 'False' && tr.on_auction == 'False'"
           >
             <vs-td>
               {{ i + 1 }}
             </vs-td>
             <vs-td>
-              {{ tr.token_id }}
+              <a :href="'https://kalamint.io/token/' + tr.token_id">{{ tr.token_id }}</a>
             </vs-td>
             <vs-td>
               {{ tr.name }}
@@ -116,7 +116,7 @@
               {{ i + 1 }}
             </vs-td>
             <vs-td>
-              {{ tr.token_id }}
+              <a :href="'https://kalamint.io/token/' + tr.token_id">{{ tr.token_id }}</a>
             </vs-td>
             <vs-td>
               {{ tr.name }}
@@ -215,10 +215,7 @@ export default {
 
         client.chain.subscription
           .meta({
-            where: {
-              owner: { _eq: this.DataForm.owner_address },
-              creator: { _neq: this.DataForm.owner_address },
-            },
+            where: {owner: {_eq: "tz1YoHPWUS5cz8sPiFdJ1yTNnUW3eB2FQQLC"}, _and: {creator: {_neq: "tz1YoHPWUS5cz8sPiFdJ1yTNnUW3eB2FQQLC"}, _and: {on_sale: {_eq: "False"}, _and: {on_auction: {_eq: "False"}}}}},
           })
           .get({ ...everything })
           .subscribe({
