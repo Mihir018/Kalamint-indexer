@@ -37,10 +37,12 @@
               {{ tr.price/10**6}}
             </vs-td>
             <vs-td>
-              {{ tr.on_auction }}
+            <p v-if="tr.on_auction == 'False'">✖</p>
+            <p v-if="tr.on_auction == 'True'">✓</p>
             </vs-td>
             <vs-td>
-              {{ tr.on_sale }}
+            <p v-if="tr.on_sale == 'False'">✖</p>
+            <p v-if="tr.on_sale == 'True'">✓</p>
             </vs-td>
           </vs-tr>
         </template>
@@ -79,10 +81,12 @@
               {{ tr.price/10**6 }}
             </vs-td>
             <vs-td>
-              {{ tr.on_auction }}
+            <p v-if="tr.on_auction == 'False'">✖</p>
+            <p v-if="tr.on_auction == 'True'">✓</p>
             </vs-td>
             <vs-td>
-              {{ tr.on_sale }}
+            <p v-if="tr.on_sale == 'False'">✖</p>
+            <p v-if="tr.on_sale == 'True'">✓</p>
             </vs-td>
           </vs-tr>
         </template>
@@ -125,10 +129,12 @@
               {{ tr.price/10**6 }}
             </vs-td>
             <vs-td>
-              {{ tr.on_auction }}
+            <p v-if="tr.on_auction == 'False'">✖</p>
+            <p v-if="tr.on_auction == 'True'">✓</p>
             </vs-td>
             <vs-td>
-              {{ tr.on_sale }}
+            <p v-if="tr.on_sale == 'False'">✖</p>
+            <p v-if="tr.on_sale == 'True'">✓</p>
             </vs-td>
           </vs-tr>
         </template>
