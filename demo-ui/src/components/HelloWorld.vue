@@ -31,7 +31,7 @@
               <a :href="'https://kalamint.io/token/' + tr.token_id">{{ tr.token_id }}</a>
             </vs-td>
             <vs-td>
-              {{ tr.namepng }}
+              {{ tr.name }}
             </vs-td>
             <vs-td>
               {{ tr.price/10**6}}
@@ -178,6 +178,7 @@ export default {
     // },
 
     async setup() {
+      this.DataForm.tez_earned = 0
       // trades: ref([])
       this.trades = [];
       console.log(this.trades.value);
@@ -198,7 +199,7 @@ export default {
             {
               this.trades.push(x)
               // console.log(x.price/10**6)
-              if(x.creator!=x.owner)
+              if(x.creator!=x.owner && x.on_sale == "False" && x.on_auction == "False")
               {
               this.DataForm.tez_earned+=(x.price/10**6)
               }
@@ -210,6 +211,7 @@ export default {
       // console.log(this.DataForm.tez_earned);
     },
     async collected() {
+      this.DataForm.tez_spent = 0
       // trades: ref([])
       this.collect = [];
       if (this.DataForm.owner_address !== undefined) {
@@ -221,7 +223,7 @@ export default {
 
         client.chain.subscription
           .meta({
-            where: {owner: {_eq: "tz1YoHPWUS5cz8sPiFdJ1yTNnUW3eB2FQQLC"}, _and: {creator: {_neq: "tz1YoHPWUS5cz8sPiFdJ1yTNnUW3eB2FQQLC"}, _and: {on_sale: {_eq: "False"}, _and: {on_auction: {_eq: "False"}}}}},
+            where: {owner: {_eq: this.DataForm.owner_address }, creator: {_neq: this.DataForm.owner_address }},
           })
           .get({ ...everything })
           .subscribe({
@@ -234,6 +236,8 @@ export default {
       }
     },
     reloadPage() {
+      this.DataForm.tez_spent = 0
+      this.DataForm.tez_earned = 0
       window.location.reload();
     },
   },
