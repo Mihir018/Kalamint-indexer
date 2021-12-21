@@ -4,7 +4,7 @@ services:
 
   db:
     image: postgres:13
-    ports:
+    ports: 
       - 127.0.0.1:5432:5432
     env_file: dipdup.env
     restart: always
@@ -19,7 +19,7 @@ services:
   hasura:
     image: hasura/graphql-engine:v2.0.4
     ports:
-      - 0.0.0.0:8080:8080
+      - 127.0.0.1:8080:8080
     depends_on:
       - db
     env_file: dipdup.env
