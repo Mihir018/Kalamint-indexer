@@ -3,7 +3,7 @@ package: demo
 
 database:
   kind: postgres
-  host: db
+  host: https://salty-basin-39097.herokuapp.com/
   port: 5432
   user: dipdup
   password: changeme
